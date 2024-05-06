@@ -9,7 +9,7 @@ function FeedPosts() {
     setTimeout(()=>{
       setIsLoading(false)
     },1500)
-  })
+  },[])
 
   return (
     <Container maxW={"container.sm"} py={10} px={2}>
