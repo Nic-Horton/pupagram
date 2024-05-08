@@ -158,29 +158,14 @@ function ProfilePost({ post }) {
                 <Divider my={4} bg={"gray.500"}/>
 
                 <VStack w={"full"} alignItems={"start"} maxH={"350px"} overflowY={"auto"}>
-                  <Comment 
-                    createdAt="1d ago"
-                    username="username"
-                    profilePic="/profilepic.png"
-                    text={"Dummy images from unsplash"}
-                  />
-                  <Comment 
-                    createdAt={"12h ago"}
-                    username={"abrahmov"}
-                    profilePic={"https://bit.ly/dan-abramov"}
-                    text={"Nice pic"}
-                  />
-                  <Comment 
-                    createdAt={"3h ago"}
-                    username={"kentdodds"}
-                    profilePic={"https://bit.ly/kent-c-dodds"}
-                    text={"Great pic dude!"}
-                  />
+                  {post.comments.map((comment) => (
+                    <Comment key={comment.id} comment={comment}/>
+                  ))}
                 </VStack>
 
                 <Divider my={4} bg={"gray.800"}/>
 
-                <PostFooter isProfilePage={true}/>
+                <PostFooter isProfilePage={true} post={post}/>
                 
               </Flex>
             </Flex>
