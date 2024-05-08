@@ -4,7 +4,7 @@ import { BsFillImageFill } from "react-icons/bs";
 import { useRef, useState } from "react";
 import usePreviewImg from "../../hooks/usePreviewImg";
 import useShowToast from "../../hooks/useShowToast";
-// import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import useUserProfileStore from "../../store/userProfileStore";
 import usePostStore from "../../store/postStore";
 import useAuthStore from "../../store/authStore";
@@ -14,7 +14,7 @@ import { getDownloadURL, ref, uploadString } from "firebase/storage";
 
 const CreatePost = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
-	const {caption, setCaption} = useState('');
+	const [caption, setCaption] = useState('');
 	const imageRef = useRef(null)
 	const { handleImageChange, selectedFile, setSelectedFile } = usePreviewImg();
 	const { isLoading, handleCreatePost } = useCreatePost()
@@ -112,7 +112,7 @@ function useCreatePost() {
 	const createPost = usePostStore((state) => state.createPost);
 	const addPost = useUserProfileStore((state) => state.addPost);
 	// const userProfile = useUserProfileStore((state) => state.userProfile);
-	// const { pathname } = useLocation();
+	const { pathname } = useLocation();
 
 	const handleCreatePost = async (selectedFile, caption) => {
 		if(isLoading) return;
