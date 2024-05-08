@@ -1,19 +1,16 @@
-import { Box, Container, Flex, Skeleton, SkeletonCircle, VStack } from '@chakra-ui/react'
+import { Box, Container, Flex, Skeleton, SkeletonCircle, Text, VStack } from '@chakra-ui/react'
 import FeedPost from './FeedPost'
-import { useEffect, useState } from 'react'
+import useGetFeedPosts from '../../hooks/useGetFeedPosts'
 
 function FeedPosts() {
-  const [isLoading, setIsLoading] = useState('true');
+  const {isLoading, posts} = useGetFeedPosts();
 
-  useEffect(()=>{
-    setTimeout(()=>{
-      setIsLoading(false)
-    },1500)
-  },[])
+  
 
   return (
     <Container maxW={"container.sm"} py={10} px={2}>
-      {isLoading && [0,1,2,3].map((_,index) => (
+
+      {isLoading && [0,1,2].map((_,index) => (
         <VStack key={index} gap={4} alignItems={"flex-start"} mb={10}>
           <Flex gap={2}>
             <SkeletonCircle size={10}/>
@@ -22,35 +19,19 @@ function FeedPosts() {
             </VStack>
           </Flex>
           <Skeleton w={"full"}>
-            <Box h={"500px"}>contents wrapped</Box>
+            <Box h={"400px"}>contents wrapped</Box>
           </Skeleton>
         </VStack>
       ))}
-      {!isLoading && (
-        <>
-          <FeedPost 
-            username= 'Jann'
-            img= 'img1.png'
-            avatar= 'img1.png'
-          />
-          <FeedPost 
-            username= 'Joe'
-            img= 'img2.png'
-            avatar= 'img2.png'
-          />
-          <FeedPost 
-            username= 'Jane'
-            img= 'img3.png'
-            avatar= 'img3.png'
-          />
-          <FeedPost 
-            username= 'John'
-            img= 'img4.png'
-            avatar= 'img4.png'
-          />
-        </>
-      )}
-      
+
+    {!isLoading && posts.length > 0 && posts.map((post) => <FeedPost key={post.id} post={post} />)}
+    {!isLoading && posts.length === 0 && (
+				<>
+					<Text fontSize={"md"} color={"red.400"} textAlign={"center"}>
+						Looks like you aren&apos;t following anyone.
+					</Text>
+				</>
+			)}
     </Container>
   )
 }
