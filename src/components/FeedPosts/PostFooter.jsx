@@ -1,17 +1,19 @@
-import { Box, Button, Flex, Input, InputGroup, InputRightElement, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, Input, InputGroup, InputRightElement, Text, useDisclosure } from "@chakra-ui/react"
 import { useRef, useState } from "react"
 import { CommentLogo, NotificationsLogo, UnlikeLogo } from "../../assets/constants";
 import usePostComment from "../../hooks/usePostComment";
 import useAuthStore from "../../store/authStore";
 import useLikePost from "../../hooks/useLikePost";
 import { timeAgo } from "../../utils/timeAgo";
+import CommentsModal from "../Comment/CommentModal";
 
 function PostFooter({post, isProfilePage, creator}) {
   const [comment, setComment] = useState('');
   const { isCommenting, handlePostComment } = usePostComment();
   const authUser = useAuthStore((state) => state.user);
   const commentRef = useRef(null);
-  const {isLiked, likes, handleLikePost} = useLikePost(post)
+  const {isLiked, likes, handleLikePost} = useLikePost(post);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleSubmitComment = async () => {
     await handlePostComment(post.id, comment)
@@ -40,17 +42,20 @@ function PostFooter({post, isProfilePage, creator}) {
 
       {!isProfilePage && (
         <>
-        <Text fontWeight={700} fontSize={"sm"}>
-        {creator?.username}{" "}
-        <Text as='span' fontWeight={400}>
-          {post.caption}
-        </Text>
-        </Text>
-        {post.comments.length > 0 && (
-          <Text fontSize={"sm"} color={"gray"} cursor={"pointer"}>
-            View all {post.comments.length} comments
+          <Text fontWeight={700} fontSize={"sm"}>
+            {creator?.username}{" "}
+            <Text as='span' fontWeight={400}>
+              {post.caption}
+            </Text>
           </Text>
-        )}
+
+          {post.comments.length > 0 && (
+            <Text fontSize={"sm"} color={"gray"} cursor={"pointer"} onClick={onOpen}>
+              View all {post.comments.length} comments
+            </Text>
+          )}
+          
+          {isOpen ? <CommentsModal isOpen={isOpen} onClose={onClose} post={post} /> : null}
         </>
       )}
 
