@@ -1,6 +1,6 @@
 import PostHeader from './PostHeader'
 import PostFooter from './PostFooter'
-import { Box, Image } from '@chakra-ui/react'
+import { Image, Flex } from '@chakra-ui/react'
 import useGetUserProfileById from '../../hooks/useGetUserProfileById'
 
 function FeedPost({ post }) {
@@ -9,9 +9,9 @@ function FeedPost({ post }) {
   return (
     <>
       <PostHeader post={post} creator={userProfile}/>
-      <Box borderRadius={4} overflow={"hidden"}>
+      <Flex my={2} borderRadius={4} overflow={"hidden"} justifyContent={"center"} alignItems={"center"}>
         <Image src={post.imageURL} alt={"Feed post image"}/>
-      </Box>
+      </Flex>
       <PostFooter post={post} creator={userProfile}/>
     </>
   )
