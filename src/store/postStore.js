@@ -18,6 +18,20 @@ const usePostStore = create((set) => ({
 				return post;
 			}),
 		})),
+	updateLikes: (postId, isLiked, userId) =>
+		set((state) => ({
+			posts: state.posts.map((post) => {
+				if (post.id === postId) {
+					return {
+						...post,
+						likes: isLiked
+							? [...post.likes, userId]
+							: post.likes.filter((like) => like !== userId),
+					};
+				}
+				return post;
+			}),
+		})),
 }));
 
 export default usePostStore;
