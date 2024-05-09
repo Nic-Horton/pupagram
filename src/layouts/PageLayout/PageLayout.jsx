@@ -27,7 +27,7 @@ function PageLayout({children}) {
       {canRenderNavbar ? <Navbar /> : null}
 
       {/* page content on right */}
-      <Box flex={1} w={{base:"calc(100% - 70px)",md:"calc(100% - 240px)"}} mx={"auto"}>
+      <Box flex={1} w={{base:"calc(100% - 70px)",md:"calc(100% - 240px)"}} mx={"auto"} bg={"#0B0B0B"}>
         {children}
       </Box>
     </Flex>
