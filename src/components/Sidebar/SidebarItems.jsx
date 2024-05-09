@@ -8,7 +8,6 @@ const SidebarItems = () => {
     <>
       <Home />
       <Search />
-      {/* <Notifications /> */}
       <CreatePost />
       <ProfileLink />
     </>
