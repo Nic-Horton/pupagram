@@ -46,8 +46,8 @@ const CommentsModal = ({ isOpen, onClose, post }) => {
 
 				<ModalBody pb={6}>
 					<Flex mb={4} gap={4} flexDir={"column"} maxH={"250px"} overflowY={"auto"} ref={commentsContainerRef}>
-            {post.comments.map((comment, idx) => (
-              <Comment key={idx} comment={comment}/>
+            {post.comments.map((comment) => (
+              <Comment key={comment.id} comment={comment}/>
             ))}
           </Flex>
 

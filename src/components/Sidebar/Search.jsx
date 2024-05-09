@@ -13,7 +13,7 @@ const Search = () => {
     e.preventDefault();
     getUserProfile(searchRef.current.value)
   }
-  console.log(user)
+  // console.log(user)
 	return (
 		<>
 			<Tooltip
