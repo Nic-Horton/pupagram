@@ -3,6 +3,7 @@ import { useState } from "react"
 import Login from "./Login"
 import Signup from "./Signup"
 import GoogleAuth from "./GoogleAuth"
+import { InstagramLogo } from "../../assets/constants"
 
 function AuthForm() {
   const [isLogin, setIsLogin] = useState(true)
@@ -11,7 +12,12 @@ function AuthForm() {
     <>
     <Box border={"1px solid gray"} borderRadius={4} padding={5}>
       <VStack spacing={4}>
-        <Image src="/logo.png" h={24} cursor={"pointer"} alt='Instagram'/>
+        {/* <Image src="/logo.png" h={24} cursor={"pointer"} alt='Instagram'/> */}
+        <InstagramLogo height="100"
+					role="img"
+					viewBox="15 9 148 18"
+					width="250"
+					/>
         
         {isLogin ? <Login/> : <Signup/>}
 
