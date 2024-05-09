@@ -1,6 +1,5 @@
-import { Box, Button, Flex, Link, Tooltip } from '@chakra-ui/react'
+import { Avatar, Box, Button, Flex, Image, Link, Tooltip } from '@chakra-ui/react'
 import {Link as RouterLink} from 'react-router-dom'
-import { InstagramLogo, InstagramMobileLogo } from '../../assets/constants'
 
 import { BiLogOut } from "react-icons/bi";
 import useLogout from '../../hooks/useLogout';
@@ -22,11 +21,22 @@ function Sidebar() {
     px={{base:2,md:4}}
     >
       <Flex direction={"column"} gap={10} w={"full"} h={"full"}>
-        <Link to={"/"} as={RouterLink} pl={2} display={{base:'none',md:'block'}} cursor={"pointer"}>
-          <InstagramLogo height="29" viewBox="32 4 113 32" width="103" />
+        <Link to={"/"} as={RouterLink} pl={2} display={{base:'none',md:'flex'}} justifyContent={'center'} cursor={"pointer"}>
+          <Image src="/pupagramLogo.png" boxSize='150px' cursor={"pointer"} alt='Instagram'/>
         </Link>
-        <Link to={"/"} as={RouterLink} p={2} display={{base:'block',md:'none'}} borderRadius={6} _hover={{bg:"whiteAlpha.200"}} w={10} cursor={"pointer"}>
-          <InstagramMobileLogo />
+        <Link
+          display={{base:'flex',md:'none'}}
+          to={"/"}
+          as={RouterLink}
+          alignItems={"center"}
+          gap={4}
+          borderRadius={6}
+          p={2}
+          w={10} 
+          cursor={"pointer"}
+          justifyContent={{ base: "center", md: "flex-start" }}
+        >
+          <Avatar size={"md"} src="/pupagramLogo.png" />
         </Link>
         <Flex direction={"column"} gap={5} cursor={"pointer"}>
           <SidebarItems />

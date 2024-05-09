@@ -1,19 +1,14 @@
-import { Button, Container, Flex } from "@chakra-ui/react";
+import { Button, Container, Divider, Flex, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { InstagramLogo } from "../../assets/constants";
 
 const Navbar = () => {
 	return (
+		<>
 		<Container maxW={"container.lg"} my={4}>
 			<Flex w={"full"} justifyContent={{ base: "center", sm: "space-between" }} alignItems={"center"}>
 				<Link to='/auth'>
 					<Flex display={{ base: "none", sm: "block" }} cursor={"pointer"}>
-					{/* <Image src='/logo.png' h={20} display={{ base: "none", sm: "block" }} cursor={"pointer"} /> */}
-					<InstagramLogo height="100"
-					role="img"
-					viewBox="15 9 148 18"
-					width="250"
-					/>
+					<Image src='/pupagramLogo.png' boxSize='150px' display={{ base: "none", sm: "block" }} cursor={"pointer"} />
 					</Flex>
 				</Link>
 				<Flex gap={4} height={100} alignItems={"center"}>
@@ -30,6 +25,8 @@ const Navbar = () => {
 				</Flex>
 			</Flex>
 		</Container>
+		<Divider/>
+		</>
 	);
 };
 
