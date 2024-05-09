@@ -56,7 +56,7 @@ const GoogleAuth = ({prefix}) => {
       onClick={handleGoogleAuth}
     >
       <Image src="/google.png" w={5} alt="Google logo"/>
-      <Text mx={2} color={"blue.500"}>
+      <Text mx={2} color={"#ec9d59"}>
         {prefix} with Google
       </Text>
     </Flex>

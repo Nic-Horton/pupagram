@@ -22,6 +22,7 @@ const Signup = () => {
           value={inputs.email}
           size={"sm"}
           onChange={(e)=> setInputs({...inputs, email:e.target.value})}
+          focusBorderColor='#ec9d59'
         />
 
         <Input
@@ -31,6 +32,7 @@ const Signup = () => {
           value={inputs.username}
           size={"sm"}
           onChange={(e)=> setInputs({...inputs, username:e.target.value})}
+          focusBorderColor='#ec9d59'
         />
 
         <Input
@@ -40,6 +42,7 @@ const Signup = () => {
           value={inputs.fullName}
           size={"sm"}
           onChange={(e)=> setInputs({...inputs, fullName:e.target.value})}
+          focusBorderColor='#ec9d59'
         />
 
         <InputGroup>
@@ -50,6 +53,7 @@ const Signup = () => {
             value={inputs.password}
             size={"sm"}
             onChange={(e)=> setInputs({...inputs, password:e.target.value})}
+            focusBorderColor='#ec9d59'
           />
           <InputRightElement h={"full"}>
             <Button variant={"ghost"} size={"sm"} onClick={() => setShowPassword(!showPassword)}>
@@ -65,7 +69,7 @@ const Signup = () => {
           </Alert>
         )}
 
-        <Button w={"full"} colorScheme="blue" size={"sm"} fontSize={14} 
+        <Button w={"full"} colorScheme="orange" size={"sm"} fontSize={14} 
           isLoading={loading}
           onClick={() => signup(inputs)}
         >

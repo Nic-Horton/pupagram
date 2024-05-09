@@ -18,6 +18,7 @@ const Login = () => {
           value={inputs.email}
           size={"sm"}
           onChange={(e)=> setInputs({...inputs, email:e.target.value})}
+          focusBorderColor='#ec9d59'
         />
         
         <Input
@@ -27,6 +28,7 @@ const Login = () => {
           value={inputs.password}
           size={"sm"}
           onChange={(e)=> setInputs({...inputs, password:e.target.value})}
+          focusBorderColor='#ec9d59'
         />
 
         {error && (
@@ -36,7 +38,7 @@ const Login = () => {
           </Alert>
         )}
 
-        <Button w={"full"} colorScheme="blue" size={"sm"} fontSize={14} 
+        <Button w={"full"} colorScheme="orange" size={"sm"} fontSize={14} 
           isLoading={loading}
           onClick={() => login(inputs)}
         >

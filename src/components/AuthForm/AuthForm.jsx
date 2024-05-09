@@ -9,7 +9,7 @@ function AuthForm() {
 
   return (
     <>
-    <Box border={"1px solid gray"} borderRadius={4} px={5} pb={5}>
+    <Box border={"1px solid gray"} borderRadius={4} px={5} pb={5} bg={"black"}>
       <VStack spacing={4}>
         <Image src="/pupagramLogo.png" boxSize='200px' cursor={"pointer"} alt='Instagram'/>
         
@@ -27,12 +27,12 @@ function AuthForm() {
       </VStack>
     </Box>
     
-    <Box border={"1px solid gray"} borderRadius={4} padding={5}>
+    <Box border={"1px solid gray"} borderRadius={4} py={3} bg={"black"}>
       <Flex alignItems={"center"} justifyContent={"center"}>
         <Box mx={2} fontSize={14}>
           {isLogin ? "Don't have an account?" : "Already have an account?"}
         </Box>
-        <Box onClick={() => setIsLogin(!isLogin)} color={"blue.500"} cursor={"pointer"}>
+        <Box onClick={() => setIsLogin(!isLogin)} color={"#ec9d59"} cursor={"pointer"}>
           {isLogin ? "Sign Up" : "Log in"}
         </Box>
 
