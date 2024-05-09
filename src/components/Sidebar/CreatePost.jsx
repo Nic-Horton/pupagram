@@ -139,7 +139,6 @@ function useCreatePost() {
 			await updateDoc(postDocRef, { imageURL: downloadURL });
 
 			newPost.imageURL = downloadURL;
-			createPost({...newPost,id:postDocRef.id})
 			
 			if (userProfile.uid === authUser.uid) createPost({ ...newPost, id: postDocRef.id });
 			
