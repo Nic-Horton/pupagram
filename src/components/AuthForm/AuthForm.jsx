@@ -1,4 +1,4 @@
-import { Box,Image, VStack, Flex, Text } from "@chakra-ui/react"
+import { Box, VStack, Flex, Text } from "@chakra-ui/react"
 import { useState } from "react"
 import Login from "./Login"
 import Signup from "./Signup"
