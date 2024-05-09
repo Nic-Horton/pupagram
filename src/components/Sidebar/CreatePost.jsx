@@ -68,6 +68,7 @@ const CreatePost = () => {
 							placeholder='Post caption...' 
 							value={caption}
 							onChange={(e) => setCaption(e.target.value)}
+							focusBorderColor='#ec9d59'
 						/>
 
 						<Input type='file' hidden ref={imageRef} onChange={handleImageChange} />

@@ -32,7 +32,7 @@ function PostHeader({ post, creator}) {
         <Button 
         fontSize={12} 
         bg={"transparent"}
-        color={"blue.500"} 
+        color={"#ec9d59"} 
         fontWeight={"bold"} 
         _hover={{color:"white"}}
         transition={"0.2s ease-in-out"}

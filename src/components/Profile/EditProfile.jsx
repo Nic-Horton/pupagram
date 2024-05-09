@@ -76,6 +76,7 @@ const EditProfile = ({ isOpen, onClose }) => {
 									<Input placeholder={"Full Name"} size={"sm"} type={"text"} 
                     value={inputs.fullName || authUser.fullName}
                     onChange={(e)=> setInputs({...inputs, fullName: e.target.value})}
+										focusBorderColor='#ec9d59'
                   />
 								</FormControl>
 
@@ -84,6 +85,7 @@ const EditProfile = ({ isOpen, onClose }) => {
 									<Input placeholder={"Username"} size={"sm"} type={"text"} 
                     value={inputs.username || authUser.username}
                     onChange={(e)=> setInputs({...inputs, username: e.target.value})}
+										focusBorderColor='#ec9d59'
                   />
 								</FormControl>
 
@@ -92,28 +94,28 @@ const EditProfile = ({ isOpen, onClose }) => {
 									<Input placeholder={"Bio"} size={"sm"} type={"text"} 
                     value={inputs.bio || authUser.bio}
                     onChange={(e)=> setInputs({...inputs, bio: e.target.value})}
+										focusBorderColor='#ec9d59'
                   />
 								</FormControl>
 
 								<Stack spacing={6} direction={["column", "row"]}>
 									<Button
-										bg={"red.400"}
+										bg={"red.600"}
 										color={"white"}
 										w='full'
 										size='sm'
-										_hover={{ bg: "red.500" }}
+										_hover={{ bg: "red.800" }}
                     onClick={onClose}
 									>
 										Cancel
 									</Button>
 									<Button
-										bg={"blue.400"}
-										color={"white"}
+										color={"black"}
 										size='sm'
 										w='full'
-										_hover={{ bg: "blue.500" }}
                     onClick={handleEditProfile}
                     isLoading={isUpdating}
+										colorScheme="orange"
 									>
 										Submit
 									</Button>

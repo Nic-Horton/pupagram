@@ -41,7 +41,7 @@ function SuggestedUser({ user, setUser }) {
         p={0} 
         h={"max-content"} 
         fontWeight={"medium"} 
-        color={"blue.400"} 
+        color={"#ec9d59"} 
         cursor={"pointer"} 
         _hover={{color:"white"}}
         onClick={onFollowUser}

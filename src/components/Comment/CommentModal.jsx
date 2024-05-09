@@ -52,7 +52,7 @@ const CommentsModal = ({ isOpen, onClose, post }) => {
           </Flex>
 
 					<form onSubmit={handleSubmitComment} style={{ marginTop: "2rem" }}>
-						<Input placeholder='Comment' size={"sm"} ref={commentRef} />
+						<Input placeholder='Comment' size={"sm"} ref={commentRef} focusBorderColor='#ec9d59'/>
 						<Flex w={"full"} justifyContent={"flex-end"}>
 							<Button type='submit' ml={"auto"} size={"sm"} my={4} isLoading={isCommenting}>
 								Post

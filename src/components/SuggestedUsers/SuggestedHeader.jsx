@@ -27,7 +27,7 @@ function SuggestedHeader() {
         _hover={{color:"white"}}
         fontSize={14}
         fontWeight={"bold"}
-        color={"blue.400"}
+        color={"#ec9d59"}
         onClick={handleLogout}
         isLoading={isLoggingOut}
         cursor={"pointer"}

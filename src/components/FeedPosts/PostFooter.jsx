@@ -71,11 +71,12 @@ function PostFooter({post, isProfilePage, creator}) {
               onChange={(e) => setComment(e.target.value)}
               value={comment}
               ref={commentRef}
+              focusBorderColor='#ec9d59'
             />
             <InputRightElement>
               <Button 
                 fontSize={14} 
-                color={"blue.500"} 
+                color={"#ec9d59"} 
                 fontWeight={600} 
                 cursor={"pointer"} 
                 _hover={{color:"white"}} 

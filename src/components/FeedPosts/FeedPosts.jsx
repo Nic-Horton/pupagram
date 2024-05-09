@@ -27,7 +27,7 @@ function FeedPosts() {
     {!isLoading && posts.length > 0 && posts.map((post) => <FeedPost key={post.id} post={post} />)}
     {!isLoading && posts.length === 0 && (
 				<>
-					<Text fontSize={"md"} color={"red.400"} textAlign={"center"}>
+					<Text fontSize={"md"} color={"#ec9d59"} textAlign={"center"}>
 						Looks like you aren&apos;t following anyone.
 					</Text>
 				</>

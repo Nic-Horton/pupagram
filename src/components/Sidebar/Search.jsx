@@ -50,7 +50,7 @@ const Search = () => {
             <form onSubmit={handleSearchUser}>
               <FormControl>
                 <FormLabel>Username</FormLabel>
-								<Input placeholder='Enter username' ref={searchRef} />
+								<Input placeholder='Enter username' ref={searchRef} focusBorderColor='#ec9d59'/>
               </FormControl>
 
               <Flex w={"full"} justifyContent={"flex-end"}>

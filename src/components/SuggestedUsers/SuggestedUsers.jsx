@@ -29,7 +29,7 @@ function SuggestedUsers() {
 
       <Box fontSize={12} color={"gray.500"} mt={5} alignSelf={"start"}>
         © {new Date().getFullYear()} Built By{" "}
-        <Link href="https://github.com/Nic-Horton" target="_blank" color={"blue.500"} fontSize={14}>
+        <Link href="https://github.com/Nic-Horton" target="_blank" color={"#ec9d59"} fontSize={14}>
           Nic Horton
         </Link>
       </Box>

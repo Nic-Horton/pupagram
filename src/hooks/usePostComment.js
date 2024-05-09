@@ -21,6 +21,7 @@ const usePostComment = () => {
 		if (isCommenting) return;
 		if (!authUser)
 			return showToast('Error', 'You must be logged in to comment', 'error');
+		if (!comment) return showToast('Error', 'Please enter a comment', 'error');
 
 		setIsCommenting(true);
 		const newComment = {
