@@ -13,7 +13,7 @@ const Navbar = () => {
 				</Link>
 				<Flex gap={4} height={100} alignItems={"center"}>
 					<Link to='/auth'>
-						<Button colorScheme={"blue"} size={"sm"}>
+						<Button colorScheme={"orange"} size={"sm"}>
 							Login
 						</Button>
 					</Link>
