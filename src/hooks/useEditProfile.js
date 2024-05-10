@@ -5,6 +5,7 @@ import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { firestore, storage } from '../firebase/firebase';
 import { doc, updateDoc } from 'firebase/firestore';
 import useUserProfileStore from '../store/userProfileStore';
+import useToTitleCase from './useToTitleCase';
 
 const useEditProfile = () => {
 	const [isUpdating, setIsUpdating] = useState(false);
@@ -14,6 +15,7 @@ const useEditProfile = () => {
 	const setUserProfile = useUserProfileStore((state) => state.setUserProfile);
 
 	const showToast = useShowToast();
+	const toTitleCase = useToTitleCase();
 
 	const editProfile = async (inputs, selectedFile) => {
 		if (isUpdating || !authUser) return;
@@ -31,7 +33,7 @@ const useEditProfile = () => {
 
 			const updatedUser = {
 				...authUser,
-				fullName: inputs.fullName || authUser.fullName,
+				fullName: toTitleCase(inputs.fullName) || authUser.fullName,
 				username: inputs.username || authUser.username,
 				bio: inputs.bio || authUser.bio,
 				profilePicURL: URL || authUser.profilePicURL,

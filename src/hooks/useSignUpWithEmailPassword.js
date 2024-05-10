@@ -10,12 +10,14 @@ import {
 } from 'firebase/firestore';
 import useShowToast from './useShowToast';
 import useAuthStore from '../store/authStore';
+import useToTitleCase from './useToTitleCase';
 
 const useSignUpWithEmailPassword = () => {
 	const [createUserWithEmailAndPassword, , loading, error] =
 		useCreateUserWithEmailAndPassword(auth);
 
 	const showToast = useShowToast();
+	const toTitleCase = useToTitleCase();
 	const loginUser = useAuthStore((state) => state.login);
 
 	const signup = async (inputs) => {
@@ -54,7 +56,7 @@ const useSignUpWithEmailPassword = () => {
 					uid: newUser.user.uid,
 					email: inputs.email,
 					username: inputs.username,
-					fullName: inputs.fullName,
+					fullName: toTitleCase(inputs.fullName),
 					bio: '',
 					profilePicURL: '',
 					followers: [],

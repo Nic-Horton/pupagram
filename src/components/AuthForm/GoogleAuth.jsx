@@ -4,10 +4,12 @@ import { auth, firestore } from "../../firebase/firebase";
 import useShowToast from "../../hooks/useShowToast";
 import useAuthStore from "../../store/authStore";
 import { doc, getDoc, setDoc } from "firebase/firestore";
+import useToTitleCase from "../../hooks/useToTitleCase";
 
 const GoogleAuth = ({prefix}) => {
   const [signInWithGoogle, , , error] = useSignInWithGoogle(auth);
   const showToast = useShowToast();
+  const toTitleCase = useToTitleCase();
   const loginUser = useAuthStore((state) => state.login);
 
   const handleGoogleAuth = async () => {
@@ -33,7 +35,7 @@ const GoogleAuth = ({prefix}) => {
 					uid: newUser.user.uid,
 					email: newUser.user.email,
 					username: newUser.user.email.split("@")[0],
-					fullName: newUser.user.displayName,
+					fullName: toTitleCase(newUser.user.displayName),
 					bio: '',
 					profilePicURL: newUser.user.photoURL,
 					followers: [],
