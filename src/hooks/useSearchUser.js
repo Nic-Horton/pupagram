@@ -1,21 +1,30 @@
 import { useState } from 'react';
 import useShowToast from './useShowToast';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, getDocs, or, query, where } from 'firebase/firestore';
 import { firestore } from '../firebase/firebase';
+import useToTitleCase from './useToTitleCase';
 
 const useSearchUser = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [user, setUser] = useState(null);
 	const showToast = useShowToast();
+	const toTitleCase = useToTitleCase();
 
 	const getUserProfile = async (username) => {
 		setIsLoading(true);
 		setUser(null);
 
+		const formattedName = /\s/.test(username)
+			? toTitleCase(username)
+			: username;
+
 		try {
 			const q = query(
 				collection(firestore, 'users'),
-				where('username', '==', username)
+				or(
+					where('username', '==', formattedName),
+					where('fullName', '==', formattedName)
+				)
 			);
 
 			const querySnapshot = await getDocs(q);
