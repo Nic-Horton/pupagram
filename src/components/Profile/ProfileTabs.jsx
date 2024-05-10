@@ -4,7 +4,7 @@ import {BsBookmark, BsGrid3X3, BsSuitHeart} from 'react-icons/bs'
 function ProfileTabs() {
   return (
     <Flex w={"full"} justifyContent={"center"} gap={{base:4,sm:10}} textTransform={"uppercase"} fontWeight={"bold"}>
-      <Flex borderTop={"1px solid white"} alignItems={"center"} p={3} gap={1} cursor={"pointer"}>
+      <Flex color='#ec9d59' borderTop={"1px solid #ec9d59"} alignItems={"center"} p={3} gap={1} cursor={"pointer"}>
         <Box fontSize={20}>
           <BsGrid3X3 />
         </Box>
