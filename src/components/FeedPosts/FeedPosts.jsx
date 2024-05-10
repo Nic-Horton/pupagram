@@ -26,14 +26,18 @@ function FeedPosts() {
 
     {!isLoading && posts.length > 0 && posts.map((post) => <FeedPost key={post.id} post={post} />)}
     {!isLoading && posts.length === 0 && (
-				<>
-					<Text fontSize={"md"} color={"#ec9d59"} textAlign={"center"}>
-						Looks like you aren&apos;t following anyone.
-					</Text>
-				</>
+				<NoFeedPosts/>
 			)}
     </Container>
   )
 }
 
 export default FeedPosts
+
+const NoFeedPosts = () => {
+	return (
+		<Flex flexDir='column' textAlign={"center"} mx={"auto"} mt={5} color={"#ec9d59"}>
+			<Text fontSize={"2xl"}>Looks like you aren&apos;t following any furiends 🐶</Text>
+		</Flex>
+	);
+};
