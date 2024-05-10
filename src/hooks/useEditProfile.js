@@ -31,9 +31,11 @@ const useEditProfile = () => {
 				URL = await getDownloadURL(storageRef);
 			}
 
+			if (inputs.fullName) inputs.fullName = toTitleCase(inputs.fullName);
+
 			const updatedUser = {
 				...authUser,
-				fullName: toTitleCase(inputs.fullName) || authUser.fullName,
+				fullName: inputs.fullName || authUser.fullName,
 				username: inputs.username || authUser.username,
 				bio: inputs.bio || authUser.bio,
 				profilePicURL: URL || authUser.profilePicURL,
