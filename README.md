@@ -3,9 +3,9 @@
 <!-- PROJECT LOGO -->
 
 <div align="center">
-<!--   <a href="https://github.com/Nic-Horton/pupagram">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a> -->
+  <a href="https://pupagram.vercel.app/">
+    <img src="/public/pupagramLogo.png" alt="Logo" width="100" height="100">
+  </a>
 
 <h3 align="center">Pupagram</h3>
 
